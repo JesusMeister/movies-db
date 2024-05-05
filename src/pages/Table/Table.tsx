@@ -1,6 +1,6 @@
 import { MovieTable } from '../../components/MovieTable';
 import { nowPlayingUrl, popularUrl, topRatedUrl } from '../../constants/urls';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from '../../services/requests/movies';
 import useFavorites from '../../services/hooks/useFavorites';
@@ -21,6 +21,12 @@ export const tableRoutes: Record<string, Route> = {
 }
 
 function Table() {
+
+  const location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [location])
+
   const { param } = useParams();
 
   var movieUrl:string; 

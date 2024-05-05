@@ -10,9 +10,9 @@ const MoviePage:React.FC<IMoviePage> = ({
 }) => {
   const getAge = (adult: boolean) => {
     if (adult) {
-      return(<p>18-</p>)
+      return(<p>18+ {adult}</p>)
     }
-    return (<p>18+</p>)
+    return (<p>18- {adult}</p>)
   }
   const movie = useMovieId(id);
   const {favorites, addToFavorites, removeFromFavorites, isFavorite} = useFavorites();
@@ -29,7 +29,10 @@ const MoviePage:React.FC<IMoviePage> = ({
   }
   return (
     <div className='p-3 flex'>
-      <img src={poster} alt='poster' className='rounded-lg w-64'></img>
+      {movie?.poster_path === null ? 
+      (<div className="a h-96 w-64 flex items-center justify-center text-white font-bold bg-black">Poster unavailable</div>)
+      :
+      (<img src={poster} alt='poster' className='rounded-lg w-64'></img>)}
       <div className='p-5'>
         <p className='font-bold text-3xl'>{movie?.title}</p>
         <br></br>
