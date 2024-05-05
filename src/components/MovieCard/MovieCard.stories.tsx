@@ -1,7 +1,6 @@
 import {Meta, StoryFn} from '@storybook/react'
 import { IMovieCard } from './types'
 import MovieCard from './MovieCard'
-import { Component } from 'react'
 
 const meta = {
     title: 'Components/MovieCard',

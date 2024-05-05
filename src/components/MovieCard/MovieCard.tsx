@@ -24,7 +24,7 @@ const MovieCard: React.FC<IMovieCard> = ({
   return(
   <Link to = {ROUTES.POSTER + "/"+ movieId} className='inline-block'>
   <div className='relative overflow-hidden rounded-lg inline-block bg-red-600 w-64'>
-      <img src={poster} alt='poster' className='h-full w-full rounded-lg relative duration-700 hover:scale-110 hover:brightness-50'></img>
+      <img src={poster} alt='Poster unavailable' className='h-full w-full rounded-lg relative duration-700 hover:scale-110 hover:brightness-50'></img>
       <div className='absolute bottom-5 left-6'>
         <div className='sm:text-xs md:text-sm lg:text-base inline-block p-1 font-bold text-[#ffffff] bg-[#eb554d] rounded-md'>
         {getGenre(genreId)}

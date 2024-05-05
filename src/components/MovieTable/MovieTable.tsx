@@ -4,12 +4,12 @@ import { IMovieTable } from './types'
 
 const MovieTable:React.FC<IMovieTable> =
  ({
-  movies, title
+  movies, title, desc
   }) => {
   if (movies.length === 0){
     return (
       <div className='bg-gray-200 items-center inline-block'>
-      <p className='p-2 font-bold'>No hay peliculas para mostrar</p>
+      <p className='p-5 font-bold text-3xl'>There are no {desc} movies available</p>
       </div>
     )
   }

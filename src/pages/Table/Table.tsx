@@ -10,13 +10,14 @@ type Route = {
   url: string;
   name: string;
   title: string;
+  desc: string;
 };
 
 export const tableRoutes: Record<string, Route> = {  
-  popular:{url: popularUrl,name: "popular",title:"POPULAR"},
-  topRated: {url:topRatedUrl, name:"topRated",title:"TOP RATED"},
-  nowPlaying: {url:nowPlayingUrl, name:"nowPlaying",title:"NOW PLAYING"},
-  favorites: {url:popularUrl, name: "favorites", title:"FAVORITES"}
+  popular:{url: popularUrl,name: "popular",title:"POPULAR", desc:"popular"},
+  topRated: {url:topRatedUrl, name:"topRated",title:"TOP RATED", desc: "top rated"},
+  nowPlaying: {url:nowPlayingUrl, name:"nowPlaying",title:"NOW PLAYING", desc: "now playing"},
+  favorites: {url:popularUrl, name: "favorites", title:"FAVORITES", desc: "favorite"}
 }
 
 function Table() {
@@ -32,6 +33,7 @@ function Table() {
 
   let movieList: movie[]
   const [movies, setMovies] = useState<movie[]>([]);
+  var description = "";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,6 +49,7 @@ function Table() {
     if (typeof param === 'undefined'){
       return ""
     }
+    description = tableRoutes[param].desc
     return tableRoutes[param].title;
   }
   const { favorites, addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
@@ -55,7 +58,7 @@ function Table() {
   }
   return (
     <div className='bg-gray-200 min-h-screen'>
-      <MovieTable movies={movieList} title={getTitle()}/>
+      <MovieTable movies={movieList} title={getTitle()} desc={description}/>
     </div>
   );
 }

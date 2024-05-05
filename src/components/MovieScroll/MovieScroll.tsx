@@ -26,7 +26,7 @@ const MovieScroll: React.FC<IMovieScroll> = ({
       </div>
       {movies.length === 0 ? (
         <div className='p-5 font-bold'>
-          <p>No hay películas para mostrar</p>
+          <p>No movies available</p>
         </div>
       ) : (
         <div className="flex overflow-x-auto">

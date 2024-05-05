@@ -19,12 +19,12 @@ const MoviePage:React.FC<IMoviePage> = ({
   const poster = IMAGE_SOURCE + movie?.poster_path;
   if (movie?.id === 0){
     return (
-      <div>Cargando...</div>
+      <div className='font-bold'>Loading...</div>
     )
   }
   if (typeof movie?.adult == 'undefined'){
     return (
-      <div>Cargando...</div>
+      <div className='font-bold'>Loading...</div>
     )
   }
   return (
