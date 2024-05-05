@@ -19,13 +19,13 @@ const MovieScroll: React.FC<IMovieScroll> = ({
   }
 
   return (
-    <div className="bg-gray-200">
+    <div className="">
       <div className='flex justify-between items-center p-5'>
         <p className="font-bold lg:text-2xl md:text-xl sm:text-lg">{text}</p>
         {ViewAll()}
       </div>
       {movies.length === 0 ? (
-        <div className='bg-gray-200 p-5'>
+        <div className='p-5 font-bold'>
           <p>No hay películas para mostrar</p>
         </div>
       ) : (
