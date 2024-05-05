@@ -1,7 +1,7 @@
 import React from 'react'
 import { IMovieCard } from './types'
 import { Link } from 'react-router-dom'
-import { IMAGE_SOURCE } from '../../services/requests/movies'
+import { IMAGE_SOURCE } from '../../constants/urls'
 import genres from '../../constants/genres.json'
 import { ROUTES } from '../../routes/constants'
 import '../../index.css'
