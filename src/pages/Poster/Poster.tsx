@@ -7,7 +7,7 @@ function Poster() {
     const { param } = useParams()
     const url = "https://api.themoviedb.org/3/movie/" + param + "/similar?language=en-US&page=1"
   return (
-    <div className='bg-gray-200'>
+    <div className='bg-gray-200 min-h-screen'>
         <MoviePage id={Number(param)}/>
         <MovieScroll text='RECOMMENDATIONS' movies={useMovies(url)} filter={0}/>
     </div>
