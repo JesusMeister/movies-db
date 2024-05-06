@@ -33,7 +33,7 @@ const MovieTable:React.FC<IMovieTable> =
   if (movies.length === 0){
     return (
       <div className='bg-gray-200 items-center inline-block'>
-      <p className='p-5 font-bold text-3xl'>There are no movies in to show in {desc} list</p>
+      <p className='p-5 font-bold text-3xl'>There are no movies to show in {desc} list</p>
       </div>
     )
   }
