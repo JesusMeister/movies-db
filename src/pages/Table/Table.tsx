@@ -41,11 +41,14 @@ function Table() {
   const [movies, setMovies] = useState<movie[]>([]);
   var description = "";
 
+  const [loading, setLoading] = useState<boolean>();
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       const movieList = await getMovies(movieUrl);
       if (movieList) {
         setMovies(movieList);
+        setLoading(false)
       }
     };
     fetchData();
@@ -64,7 +67,10 @@ function Table() {
   }
   return (
     <div className='bg-gray-200 min-h-screen'>
-      <MovieTable movies={movieList} title={getTitle()} desc={description}/>
+      {loading ? 
+        (<p className='font-bold'>Loading...</p>)
+        :
+        (<MovieTable movies={movieList} title={getTitle()} desc={description}/>)}
     </div>
   );
 }

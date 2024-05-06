@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MoviePage } from '../../components/MoviePage'
 import { MovieScroll } from '../../components/MovieScroll'
 import { useMovies } from '../../services/hooks/useMovies'
@@ -8,13 +8,25 @@ function Poster() {
     const { param } = useParams()
     const url = "https://api.themoviedb.org/3/movie/" + param + "/similar?language=en-US&page=1"
     const location = useLocation()
+    const [loading, setLoading] = useState<boolean>();
+    const movieList = useMovies(url);
     useEffect(() => {
-     window.scrollTo(0,0)
+     setLoading(true);
+     if (movieList){
+      setLoading(false);
+     }
+     window.scrollTo(0,0);
+
     }, [location])
   return (
     <div className='bg-gray-200 min-h-screen'>
+        {loading ? 
+        (<p className='font-bold'>Loading...</p>)
+        :
+        (<>
         <MoviePage id={Number(param)}/>
-        <MovieScroll text='RECOMMENDATIONS' movies={useMovies(url)} filter={0}/>
+        <MovieScroll text='RECOMMENDATIONS' movies={movieList} filter={0}/>
+        </>)}
     </div>
   )
 }
