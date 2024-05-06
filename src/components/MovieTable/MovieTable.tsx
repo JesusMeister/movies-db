@@ -53,7 +53,7 @@ const MovieTable:React.FC<IMovieTable> =
       (<button className='bg-green-500 rounded-md text-white p-2' onClick={()=>unsort()}>Sort by rating</button>)}
       </div>
       </div>
-    <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 bg-gray-200 p-5'>
+    <div className='flex flex-wrap gap-5 bg-gray-200 p-5'>
       {movieList.map((movie) => (
         <div className='m-0'> 
           <MovieCard
