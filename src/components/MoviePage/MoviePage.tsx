@@ -15,7 +15,7 @@ const MoviePage:React.FC<IMoviePage> = ({
     return (<p>18- {adult}</p>)
   }
   const movie = useMovieId(id);
-  const {favorites, addToFavorites, removeFromFavorites, isFavorite} = useFavorites();
+  const {addToFavorites, removeFromFavorites, isFavorite} = useFavorites();
   const poster = IMAGE_SOURCE + movie?.poster_path;
   if (movie?.id === 0){
     return (

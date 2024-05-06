@@ -61,7 +61,7 @@ function Table() {
     description = tableRoutes[param].desc
     return tableRoutes[param].title;
   }
-  const { favorites, addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
+  const { favorites } = useFavorites();
   if (param === tableRoutes.favorites.name){
     movieList = favorites
   }

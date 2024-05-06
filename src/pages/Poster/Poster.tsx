@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MoviePage } from '../../components/MoviePage'
 import { MovieScroll } from '../../components/MovieScroll'
 import { useMovies } from '../../services/hooks/useMovies'
@@ -17,7 +17,7 @@ function Poster() {
      }
      window.scrollTo(0,0);
 
-    }, [location])
+    }, [location, movieList])
   return (
     <div className='bg-gray-200 min-h-screen'>
         {loading ? 

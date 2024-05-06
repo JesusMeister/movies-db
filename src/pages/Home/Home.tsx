@@ -17,7 +17,7 @@ function Home() {
     if (nowPlaying && popular && topRated){
       setLoading(false);
     }
-  }, [location, loading])
+  }, [location, loading, nowPlaying, popular, topRated])
   return (
     <div className='bg-gray-200 min-h-screen'>
        {loading ? 
