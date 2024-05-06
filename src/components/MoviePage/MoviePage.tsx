@@ -28,7 +28,7 @@ const MoviePage:React.FC<IMoviePage> = ({
     )
   }
   return (
-    <div className='p-3 flex'>
+    <div className='p-3 md:flex'>
       {movie?.poster_path === null ? 
       (<div className="a h-96 w-64 flex items-center justify-center text-white font-bold bg-black">Poster unavailable</div>)
       :
@@ -54,15 +54,18 @@ const MoviePage:React.FC<IMoviePage> = ({
         <div className='flex space-x-10'>
         <div>
           <br></br>
-        <p>Genres</p>
+        <div>
+        <p className='font-bold'>Genres</p>
         <div className='flex flex-wrap'>
           {movie?.genres.map((item: genre, i: number) => (
-            <span key={i} className="m-2 border bg-green-500 p-1 rounded-lg text-gray-100">
+            <span key={i} className="m-2 border bg-green-500 p-2 rounded-lg text-gray-100">
               {item.name}
             </span>
           ))}
         </div>
-        <p className=''>Favorite</p>
+        </div>
+        <div>
+        <p className='font-bold'>Favorite</p>
         {isFavorite(movie) ? (
         <button className="m-2 border bg-red-500 p-2 rounded-lg text-gray-100" onClick={() => removeFromFavorites(movie)}>
           × Remove from favorites
@@ -70,6 +73,7 @@ const MoviePage:React.FC<IMoviePage> = ({
         (<button className="m-2 border bg-blue-500 p-2 rounded-lg text-gray-100" onClick={() => addToFavorites(movie)}>
           ♥ Add to favorites
         </button>)}
+        </div>
         </div>
         </div>
       </div>
